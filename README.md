@@ -1,4 +1,4 @@
-##README
+**README**
 
 ---
 
@@ -12,7 +12,7 @@ Using fundamental knowledge of Python to organize and process the data of 34 dif
 
 **Result**
 
-My solutions are under ==Atlantic_Hurricanes_Project.py==.  As a comparison I have added the solutions provided by the learning platform under ==Hurricanes_Project_Solution.py==.  
+My solutions are under Atlantic_Hurricanes_Project.py.  As a comparison I have added the solutions provided by the learning platform under Hurricanes_Project_Solution.py.  
 
  
 **Task 1**
