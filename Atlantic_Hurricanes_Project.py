@@ -21,6 +21,8 @@ deaths = [90,4000,16,3103,179,184,408,682,5,1023,43,319,688,259,37,11,2068,269,3
 
 # 1
 # Update Recorded Damages
+# Test function by updating damages
+
 conversion = {"M": 1000000,
               "B": 1000000000}
 
@@ -38,12 +40,12 @@ def update_recorded_damages(damages):
       value = float(float_str[0]) * conversion["B"]
       updated_damages.append(value)
   return updated_damages
-# test function by updating damages
+
 converted_damages = update_recorded_damages(damages)
-#print(converted_damages)
 
 # 2 
 # Create and view the hurricanes dictionary
+
 def combining_hurricane_info(names, months, years, max_sustained_winds, areas_affected, converted_damages, deaths):
   strongest_atlantic_hurricanes = {}
   for i, value in enumerate(names):
@@ -58,9 +60,6 @@ def combining_hurricane_info(names, months, years, max_sustained_winds, areas_af
 
 
 strongest_atlantic_hurricanes = combining_hurricane_info(names, months, years, max_sustained_winds, areas_affected, converted_damages, deaths)
-
-#print(strongest_atlantic_hurricanes)
-
 
 # 3
 # Organizing by Year
@@ -80,11 +79,10 @@ def create_year_dictionary(strongest_atlantic_hurricanes):
 
 hurricanes_by_year = create_year_dictionary(strongest_atlantic_hurricanes)
 
-#print(hurricanes_by_year)
 
 # 4
 # Counting Damaged Areas
-# create dictionary of areas to store the number of hurricanes involved in
+# Create dictionary of areas to store the number of hurricanes involved in
 
 def count_affected_areas(areas_affected):
   affected_area_count = {}
@@ -95,11 +93,10 @@ def count_affected_areas(areas_affected):
 
 affected_area_count = count_affected_areas(areas_affected)
 
-#print(affected_area_count)
+
 # 5 
 # Calculating Maximum Hurricane Count
-
-# find most frequently affected area and the number of hurricanes involved in
+# Find most frequently affected area and the number of hurricanes involved in
 
 def find_area_most_affected(areas_affected):
   highest_hits_area = max(areas_affected.keys(), key=(lambda new_k: areas_affected[new_k]))
@@ -109,7 +106,7 @@ find_area_most_affected(affected_area_count)
 
 # 6
 # Calculating the Deadliest Hurricane
-# find highest mortality hurricane and the number of deaths
+# Find highest mortality hurricane and the number of deaths
 
 def dict_highest_mortality(names, deaths):
   hurricanes_by_mortality = {}
@@ -118,7 +115,7 @@ def dict_highest_mortality(names, deaths):
   return hurricanes_by_mortality
 
 hurricanes_by_mortality = dict_highest_mortality(names, deaths)
-#print(hurricanes_by_mortality)
+
 
 def find_highest_mortality(hurricanes_by_mortality):
   highest_mortality_val = max(hurricanes_by_mortality.keys(), key=(lambda new_k: hurricanes_by_mortality[new_k]))
@@ -128,8 +125,7 @@ find_highest_mortality(hurricanes_by_mortality)
 
 # 7
 # Rating Hurricanes by Mortality
-
-# categorize hurricanes in new dictionary with mortality severity as key
+# Categorize hurricanes in new dictionary with mortality severity as key
 
 mortality_scale = {0: 0,
                    1: 100,
@@ -157,9 +153,11 @@ def mortality_rates(strongest_atlantic_hurricanes):
   return dict_mortality_rates   
         
 hurricanes_by_mortality_scale = mortality_rates(strongest_atlantic_hurricanes)
-#print(hurricanes_by_mortality_scale)
 
-# 8 Calculating Hurricane Maximum Damage
+# 8 
+# Calculating Hurricane Maximum Damage
+# Find highest damage inducing hurricane and its total cost
+
 def calculating_maximum_damage(strongest_atlantic_hurricanes):
   damage = [thing for thing in converted_damages if not thing == "Damages not recorded"]
   max_damage = max(damage)
@@ -170,18 +168,17 @@ def calculating_maximum_damage(strongest_atlantic_hurricanes):
 
 calculating_maximum_damage(strongest_atlantic_hurricanes)
 
-# find highest damage inducing hurricane and its total cost
-
 
 # 9
 # Rating Hurricanes by Damage
+# Categorize hurricanes in new dictionary with damage severity as key
+
 damage_scale = {0: 0,
                 1: 100000000,
                 2: 1000000000,
                 3: 10000000000,
                 4: 50000000000}
   
-# categorize hurricanes in new dictionary with damage severity as key
 
 def damage_rates(strongest_atlantic_hurricanes):
   dict_damage_rates = {0: [], 1: [], 2: [], 3: [], 4: [], 5: []}
