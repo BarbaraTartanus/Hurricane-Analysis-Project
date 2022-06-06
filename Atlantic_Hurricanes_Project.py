@@ -108,20 +108,15 @@ find_area_most_affected(affected_area_count)
 # Calculating the Deadliest Hurricane
 # Find highest mortality hurricane and the number of deaths
 
-def dict_highest_mortality(names, deaths):
-  hurricanes_by_mortality = {}
-  for i, value in enumerate(names):
-    hurricanes_by_mortality[value] = deaths[i] 
-  return hurricanes_by_mortality
+def find_highest_mortality(strongest_atlantic_hurricanes):
+  highest_mortality = max(deaths)
+  for key, value in strongest_atlantic_hurricanes.items():
+    if value["Deaths"] == highest_mortality:
+      result = [value["Name"], highest_mortality]
+      print("The hurricane with the highest mortality rate is " + result[0] + " with " + str(result[1]) + " casualties." )
 
-hurricanes_by_mortality = dict_highest_mortality(names, deaths)
+find_highest_mortality(strongest_atlantic_hurricanes)
 
-
-def find_highest_mortality(hurricanes_by_mortality):
-  highest_mortality_val = max(hurricanes_by_mortality.keys(), key=(lambda new_k: hurricanes_by_mortality[new_k]))
-  print("The hurricane " + highest_mortality_val + " is causing the greatest number of hits with " + str(hurricanes_by_mortality[highest_mortality_val]) + " casualties." )
-
-find_highest_mortality(hurricanes_by_mortality)
 
 # 7
 # Rating Hurricanes by Mortality
